@@ -1,0 +1,54 @@
+#:kivy 2.1.0
+
+<Handler>:
+    id: main_win
+    orientation: "vertical"
+    spacing: 10
+    
+
+    BoxLayout:
+        size_hint_y: None
+        height: 10
+
+        Label:
+            text: "Skapa en Fix-punkt"
+            bold: True
+            size_hint_x: .9
+
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        size_hint_y: None
+        height: 500
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+            size_hint_y: None
+            height: 100
+
+            TextInput:
+                id: fix_placement_field
+                hint_text: 'Fix-namn'
+                multiline: False
+                focus: True
+                on_text_validate: z_pos_field.focus = True
+                size_hint_y: None
+                height: 30
+
+            TextInput:
+                id: z_pos_field
+                hint_text: 'Fix-höjd'
+                multiline: False
+                size_hint_y: None
+                height: 30
+            
+            Button:
+                id: first_btn
+                text: 'Enter'
+                font_size: 14
+                size_hint_y: None
+                height: 40
+                background_color: 1, 1, 1, 1
+                on_release: self.Handler.validate_z()
